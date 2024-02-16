@@ -113,30 +113,41 @@ int deletar()
 	
 }
 
-
-
 int main()
-{
+	{
 	int opcao=0; //Definindo Variáveis
 	int x=1;
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-	for(x=1;x=1;)
+	printf("### Registros EBAC ###\n\n");
+	printf("Login de administrador!\n\n Digite sua senha: ");
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
 	
-		system("cls");
+	
+	
+		for(x=1;x=1;)
+		{
+	
+			system("cls");
 		
-		setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
+			setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
 	
-		printf("### Registros EBAC ###\n\n"); //Inicio do Menu
-		printf("Selecione a opção desejada no menu:\n\n");
-		printf("\t1 - Registrar CPF\n");
-		printf("\t2 - Consultar CPF\n");
-		printf("\t3 - Deletar CPF\n\n");
-		printf("Digite a opção desejada:"); //Fim do menu
+			printf("### Registros EBAC ###\n\n"); //Inicio do Menu
+			printf("Selecione a opção desejada no menu:\n\n");
+			printf("\t1 - Registrar CPF\n");
+			printf("\t2 - Consultar CPF\n");
+			printf("\t3 - Deletar CPF\n\n");
+			printf("Digite a opção desejada:"); //Fim do menu
 	
-		scanf("%d", &opcao); //Armazenando a escolha do Usuário
+			scanf("%d", &opcao); //Armazenando a escolha do Usuário
 	
-		system("cls"); //Responsavel por limpar a tela 
+			system("cls"); //Responsavel por limpar a tela 
 		
 			switch(opcao) //inicio deleção do menu
 			{	
@@ -156,10 +167,13 @@ int main()
 				printf("Essa opção não está disponível!\n");
 				system("pause");
 				break;
-					
-			} //Fim da seleção 
+				
+			} //Fim da seleção 	
+		}	 
 	}
+
+	else
+		printf("Senha incorreta!");
+
 }
-
-
 
