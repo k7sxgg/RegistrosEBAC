@@ -6,11 +6,11 @@
 int registro() //Função responsavel oir cadastrar os usuários no sistema
 {
 	//inicio da criação de variáveis/string
-	char arquivo[40];
-	char cpf[40];
-	char nome[40];
-	char sobrenome[40];
-	char cargo[40];
+	char arquivo[100];
+	char cpf[100];
+	char nome[100];
+	char sobrenome[100];
+	char cargo[100];
 	//inicio da criação de variáveis/string
 	
 	printf("Digite o CPF a ser cadastrado: "); //coletando informação do usuário
@@ -68,8 +68,8 @@ int consulta()
 {
 	setlocale(LC_ALL, "Portuguese");
 	
-	char cpf[40];
-	char conteudo[200];
+	char cpf[100];
+	char conteudo[2000];
 	
 	printf("Digite o CPF a ser consultado: ");
 	scanf("%s",cpf);
@@ -95,7 +95,7 @@ int consulta()
 
 int deletar()
 {
-	char cpf[40];
+	char cpf[100];
 	
 	printf("Digite o CPF a ser deletado: ");
 	scanf("%s",cpf);
