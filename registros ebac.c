@@ -143,6 +143,7 @@ int main()
 			printf("\t1 - Registrar CPF\n");
 			printf("\t2 - Consultar CPF\n");
 			printf("\t3 - Deletar CPF\n\n");
+			printf("\t4 - Sair do sistema\n\n");
 			printf("Digite a opção desejada:"); //Fim do menu
 	
 			scanf("%d", &opcao); //Armazenando a escolha do Usuário
@@ -161,6 +162,11 @@ int main()
 				
 				case 3:
 				deletar();
+				break;
+				
+				case 4:
+				printf("Obrigador por utilizar o nosso sistema!\n");
+				return 0;
 				break;
 				
 				default:
