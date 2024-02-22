@@ -6,11 +6,11 @@
 int registro() //Função responsavel oir cadastrar os usuários no sistema
 {
 	//inicio da criação de variáveis/string
-	char arquivo[100];
-	char cpf[100];
-	char nome[100];
-	char sobrenome[100];
-	char cargo[100];
+	char arquivo[40];
+	char cpf[40];
+	char nome[40];
+	char sobrenome[40];
+	char cargo[40];
 	//inicio da criação de variáveis/string
 	
 	printf("Digite o CPF a ser cadastrado: "); //coletando informação do usuário
@@ -21,7 +21,7 @@ int registro() //Função responsavel oir cadastrar os usuários no sistema
 	FILE *file;	//cria arquivo
 	file = fopen(arquivo, "w"); //cria aquivo e o "w" significa escrever
 	fprintf(file,cpf); //salvo o valor da variavel
-	fclose(file); // fecho o arquivo
+	fclose(file); // fecha o arquivo
 	
 	file = fopen(arquivo, "a");
 	fprintf(file,",");
@@ -56,10 +56,6 @@ int registro() //Função responsavel oir cadastrar os usuários no sistema
 	fprintf(file,cargo);
 	fclose(file);
 	
-	file = fopen(arquivo, "a");
-	fprintf(file,",");
-	fclose(file);
-	
 	system("pause");
 	
 }
@@ -68,10 +64,10 @@ int consulta()
 {
 	setlocale(LC_ALL, "Portuguese");
 	
-	char cpf[100];
-	char conteudo[2000];
+	char cpf[40];
+	char conteudo[200];
 	
-	printf("Digite o CPF a ser consultado: ");
+	printf("Digite o CPF a ser consultado: "); //qual usuário vai ser consultado
 	scanf("%s",cpf);
 	
 	FILE *file;
@@ -89,27 +85,42 @@ int consulta()
 		printf("\n\n");
 	}
 	
+	fclose(file);
 	system("pause");
 	
 }
 
 int deletar()
 {
-	char cpf[100];
+	char cpf[40];
 	
 	printf("Digite o CPF a ser deletado: ");
 	scanf("%s",cpf);
 	
-	remove(cpf);
 	
 	FILE *file;
 	file = fopen(cpf,"r");
 	
 	if(file == NULL)
 	{
-		printf ("Usuário deletado com sucesso!\n ");
+		printf ("Usuário não encontrado no sistema!\n ");
 		system("pause");
 	}
+	else
+	{
+		fclose(file);
+		remove(cpf);
+		FILE *file;	
+		file = fopen(cpf,"r");
+		if(file == NULL)
+		{
+			printf("Usuário deletado com sucesso!\n");
+			system("pause");
+		}
+	}
+	fclose(file);
+	
+	
 	
 }
 
@@ -117,11 +128,11 @@ int main()
 	{
 	int opcao=0; //Definindo Variáveis
 	int x=1;
-	char senhadigitada[10]="a";
+	char senhadigitada[]="a";
 	int comparacao;
 	
 	printf("### Registros EBAC ###\n\n");
-	printf("Login de administrador!\n\n Digite sua senha: ");
+	printf("Login de administrador!\n\nDigite sua senha: ");
 	scanf("%s",senhadigitada);
 	
 	comparacao = strcmp(senhadigitada, "admin");
@@ -130,12 +141,10 @@ int main()
 	{
 	
 	
-	
+		system("cls");
 		for(x=1;x=1;)
 		{
-	
-			system("cls");
-		
+			
 			setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
 	
 			printf("### Registros EBAC ###\n\n"); //Inicio do Menu
